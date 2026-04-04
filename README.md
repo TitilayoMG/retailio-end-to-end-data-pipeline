@@ -41,7 +41,7 @@ The following are the challenges the business faces:
 
 ## Project Structure
 ```bash
-cdc_pipeline_project/
+retailio_project/
 │
 ├── config/
 │   └── config.json
