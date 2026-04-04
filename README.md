@@ -38,6 +38,36 @@ The following are the challenges the business faces:
 * Containerization: Docker & Docker Compose
 * Orchestration (initial exposure): Apache Airflow
 
+
+## Project Structure
+```bash
+cdc_pipeline_project/
+│
+├── config/
+│   └── config.json
+│
+├── dags/
+│   ├── dag_utils.py
+│   ├── dag.py
+│   ├── dataset_generator.py
+│   ├── minio_client.py
+│   └── postgres_client.py
+│
+├── sql/
+│   ├── customers_ddl.sql
+│   ├── products_ddl.sql
+│   ├── sales_ddl.sql
+│   └── tracker_ddl.sql
+│
+├── Dockerfile
+├── docker-compose.yml
+└── requirements.txt
+```
+
+* Project Structure
+![](Screenshot%202026-04-04%20143654.png)
+
+
 ## Data Pipeline Workflow
 There are 2 tasks in the pipeline:
 * Generate_and_upload_all Task
@@ -92,8 +122,6 @@ Python logging module is used to track files processed, rows loaded, and errors 
 7. Configuration & Modular Components
 Python modules and reusable functions are used to provide abstraction for MinIO client, PostgreSQL client, and ETL operations which allows easy updates and scalability
 
-* Project Structure
-![](Screenshot%202026-03-24%20190225.png)
 
 ## Project Summary
 This project simulates a real-world retail business workflow that generates synthetic retail datasets—including customers, products, and sales—using Python, and stores the raw data in MinIO, an S3-compatible object storage, acting as a data lake.
