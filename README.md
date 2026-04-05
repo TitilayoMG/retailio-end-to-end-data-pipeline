@@ -1,7 +1,7 @@
 # retailio-end-to-end-data-pipeline
 End-to-end data pipeline that generates synthetic retail datasets (customers, products and sales), stores the data in MinIO, and loads it into PostgreSQL in structured format using Python-based ETL workflows.
 
-![](retailio.png)
+![](screenshots/retailio.png)
 
 ## Introduction
 Retailio is a retail business that faces manual workflows, which introduce delays, errors, and inconsistencies across datasets. The project generates synthetic retail data—including customers, products, and sales—using Python which is stored in MinIO, then processed and loaded into PostgreSQL using a custom Python-based ETL pipeline, where it is structured into analytics-ready tables.
@@ -65,7 +65,7 @@ retailio_project/
 ```
 
 * Project Structure
-![](Screenshot%202026-04-04%20143654.png)
+![](screenshots/Screenshot%202026-04-04%20143654.png)
 
 
 ## Data Pipeline Workflow
@@ -75,7 +75,7 @@ There are 2 tasks in the pipeline:
 This generates synthetic retail datasets (customers, products, sales) using Python and Faker. It converts the data into CSV files and compresses them as .csv.gz. Then uploads these files to MinIO (object storage), acting as the raw data layer (data lake) which ensures data is ready and available for downstream processing.
 
 Customer Data
-![](cus_table.png)
+![](screenshots/cus_table.png)
 
 * Load_all_from_minio Task
 
@@ -84,11 +84,11 @@ It Loads data into PostgreSQL using efficient insert and upsert strategies for f
 
 Sales Table
 
-![](sales_table.png)
+![](screenshots/sales_table.png)
 
 
 * Sales Record Count
-![](sales_rows.png)
+![](screenshots/sales_rows.png)
 
 ## Pipeline Components
 1. Data Generation Layer
@@ -98,7 +98,7 @@ It uses Python (Faker library) to generate synthetic datasets: customers, produc
 MinIO (S3-compatible object storage) is used to store raw .csv.gz files which acts as a data lake for storage before transformation
 
 Minio
-![](minio.png)
+![](screenshots/minio.png)
 
 4. Data Warehouse Layer
 PostgreSQL is used to store analytics-ready tables: customers, products and sales
@@ -111,13 +111,13 @@ Apache Airflow orchestrates tasks such as generate_and_upload_all and load_all_f
 Checks the tracker table before processing each file. Process only new files not yet recorded in the tracker. Insert a record into the tracker after successful processing.
 
 * Tracker Table
-![](tracker_table.png)
+![](screenshots/tracker_table.png)
 
 5. Monitoring & Logging
 Python logging module is used to track files processed, rows loaded, and errors during ETL which helps in debugging and ensuring pipeline reliability
 
 * Log
-![](task2_log.png)
+![](screenshots/task2_log.png)
 
 7. Configuration & Modular Components
 Python modules and reusable functions are used to provide abstraction for MinIO client, PostgreSQL client, and ETL operations which allows easy updates and scalability
