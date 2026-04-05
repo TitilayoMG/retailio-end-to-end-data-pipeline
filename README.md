@@ -1,7 +1,7 @@
 # retailio-end-to-end-data-pipeline
 End-to-end data pipeline that generates synthetic retail datasets (customers, products and sales), stores the data in MinIO, and loads it into PostgreSQL in structured format using Python-based ETL workflows.
 
-![](screenshots/retailio.png)
+![](screenshots/arch_flow.png)
 
 ## Introduction
 Retailio is a retail business that faces manual workflows, which introduce delays, errors, and inconsistencies across datasets. The project generates synthetic retail data—including customers, products, and sales—using Python which is stored in MinIO, then processed and loaded into PostgreSQL using a custom Python-based ETL pipeline, where it is structured into analytics-ready tables.
