@@ -1,0 +1,213 @@
+[2026-03-23T01:13:12.644+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-03-23T01:13:12.684+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: retail_data_pipeline.load_all_from_minio manual__2026-03-23T01:12:17.227808+00:00 [queued]>
+[2026-03-23T01:13:12.702+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: retail_data_pipeline.load_all_from_minio manual__2026-03-23T01:12:17.227808+00:00 [queued]>
+[2026-03-23T01:13:12.703+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-03-23T01:13:12.728+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): load_all_from_minio> on 2026-03-23 01:12:17.227808+00:00
+[2026-03-23T01:13:12.750+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1555) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-03-23T01:13:12.755+0000] {standard_task_runner.py:72} INFO - Started process 1557 to run task
+[2026-03-23T01:13:12.754+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'retail_data_pipeline', 'load_all_from_minio', 'manual__2026-03-23T01:12:17.227808+00:00', '--job-id', '64', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpvy1sxe6e']
+[2026-03-23T01:13:12.761+0000] {standard_task_runner.py:105} INFO - Job 64: Subtask load_all_from_minio
+[2026-03-23T01:13:12.924+0000] {task_command.py:467} INFO - Running <TaskInstance: retail_data_pipeline.load_all_from_minio manual__2026-03-23T01:12:17.227808+00:00 [running]> on host 750b4dfa1755
+[2026-03-23T01:13:13.163+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='retail_data_pipeline' AIRFLOW_CTX_TASK_ID='load_all_from_minio' AIRFLOW_CTX_EXECUTION_DATE='2026-03-23T01:12:17.227808+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-23T01:12:17.227808+00:00'
+[2026-03-23T01:13:13.166+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-03-23T01:13:13.209+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2026-03-23T01:13:13.530+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2026-03-23T01:13:13.675+0000] {dag_utils.py:123} INFO - Files from MinIO: ['landing/customers/customers_20260319_194531.csv.gz', 'landing/customers/customers_20260319_194532.csv.gz', 'landing/customers/customers_20260321T212748.csv.gz', 'landing/customers/customers_20260321_211221.csv.gz', 'landing/customers/customers_20260322T183535.csv.gz', 'landing/customers/customers_20260322T183909.csv.gz', 'landing/customers/customers_20260322T184136.csv.gz', 'landing/customers/customers_20260322T185027.csv.gz', 'landing/customers/customers_20260322T185412.csv.gz', 'landing/customers/customers_20260322T192419.csv.gz', 'landing/customers/customers_20260322T192619.csv.gz', 'landing/customers/customers_20260322T193328.csv.gz', 'landing/customers/customers_20260322T193503.csv.gz', 'landing/customers/customers_20260322T194719.csv.gz', 'landing/customers/customers_20260322T195706.csv.gz', 'landing/customers/customers_20260322T200122.csv.gz', 'landing/customers/customers_20260322T200753.csv.gz', 'landing/customers/customers_20260322T201226.csv.gz', 'landing/customers/customers_20260322T201524.csv.gz', 'landing/customers/customers_20260322T233155.csv.gz', 'landing/customers/customers_20260322T233647.csv.gz', 'landing/customers/customers_20260322T233839.csv.gz', 'landing/customers/customers_20260322T235721.csv.gz', 'landing/customers/customers_20260323T005246.csv.gz', 'landing/customers/customers_20260323T011217.csv.gz', 'landing/products/products_20260319_194532.csv.gz', 'landing/products/products_20260321T212748.csv.gz', 'landing/products/products_20260321_211221.csv.gz', 'landing/products/products_20260322T183535.csv.gz', 'landing/products/products_20260322T183909.csv.gz', 'landing/products/products_20260322T184136.csv.gz', 'landing/products/products_20260322T185027.csv.gz', 'landing/products/products_20260322T185412.csv.gz', 'landing/products/products_20260322T192419.csv.gz', 'landing/products/products_20260322T192619.csv.gz', 'landing/products/products_20260322T193328.csv.gz', 'landing/products/products_20260322T193503.csv.gz', 'landing/products/products_20260322T194719.csv.gz', 'landing/products/products_20260322T195706.csv.gz', 'landing/products/products_20260322T200122.csv.gz', 'landing/products/products_20260322T200753.csv.gz', 'landing/products/products_20260322T201226.csv.gz', 'landing/products/products_20260322T201524.csv.gz', 'landing/products/products_20260322T233155.csv.gz', 'landing/products/products_20260322T233647.csv.gz', 'landing/products/products_20260322T233839.csv.gz', 'landing/products/products_20260322T235721.csv.gz', 'landing/products/products_20260323T005246.csv.gz', 'landing/products/products_20260323T011217.csv.gz', 'landing/sales/sales_20260319_194532.csv.gz', 'landing/sales/sales_20260321T212748.csv.gz', 'landing/sales/sales_20260321_211221.csv.gz', 'landing/sales/sales_20260322T183535.csv.gz', 'landing/sales/sales_20260322T183909.csv.gz', 'landing/sales/sales_20260322T184136.csv.gz', 'landing/sales/sales_20260322T185027.csv.gz', 'landing/sales/sales_20260322T185412.csv.gz', 'landing/sales/sales_20260322T192419.csv.gz', 'landing/sales/sales_20260322T192619.csv.gz', 'landing/sales/sales_20260322T193328.csv.gz', 'landing/sales/sales_20260322T193503.csv.gz', 'landing/sales/sales_20260322T194719.csv.gz', 'landing/sales/sales_20260322T195706.csv.gz', 'landing/sales/sales_20260322T200122.csv.gz', 'landing/sales/sales_20260322T200753.csv.gz', 'landing/sales/sales_20260322T201226.csv.gz', 'landing/sales/sales_20260322T201524.csv.gz', 'landing/sales/sales_20260322T233155.csv.gz', 'landing/sales/sales_20260322T233647.csv.gz', 'landing/sales/sales_20260322T233839.csv.gz', 'landing/sales/sales_20260322T235721.csv.gz', 'landing/sales/sales_20260323T005246.csv.gz', 'landing/sales/sales_20260323T011217.csv.gz']
+[2026-03-23T01:13:13.697+0000] {postgres_client.py:82} INFO - Executed SQL file: /opt/***/sql/tracker_ddl.sql
+[2026-03-23T01:13:13.703+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260319_194531.csv.gz, result=None
+[2026-03-23T01:13:13.706+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260319_194532.csv.gz, result=None
+[2026-03-23T01:13:13.709+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260321T212748.csv.gz, result=None
+[2026-03-23T01:13:13.712+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260321_211221.csv.gz, result=None
+[2026-03-23T01:13:13.715+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T183535.csv.gz, result=None
+[2026-03-23T01:13:13.718+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T183909.csv.gz, result=None
+[2026-03-23T01:13:13.722+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T184136.csv.gz, result=None
+[2026-03-23T01:13:13.725+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T185027.csv.gz, result=None
+[2026-03-23T01:13:13.728+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T185412.csv.gz, result=None
+[2026-03-23T01:13:13.730+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T192419.csv.gz, result=None
+[2026-03-23T01:13:13.734+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T192619.csv.gz, result=None
+[2026-03-23T01:13:13.737+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T193328.csv.gz, result=None
+[2026-03-23T01:13:13.740+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T193503.csv.gz, result=None
+[2026-03-23T01:13:13.743+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T194719.csv.gz, result=None
+[2026-03-23T01:13:13.747+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T195706.csv.gz, result=None
+[2026-03-23T01:13:13.750+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T200122.csv.gz, result=None
+[2026-03-23T01:13:13.753+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T200753.csv.gz, result=None
+[2026-03-23T01:13:13.755+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T201226.csv.gz, result=None
+[2026-03-23T01:13:13.758+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T201524.csv.gz, result=None
+[2026-03-23T01:13:13.761+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T233155.csv.gz, result=None
+[2026-03-23T01:13:13.764+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T233647.csv.gz, result=None
+[2026-03-23T01:13:13.768+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T233839.csv.gz, result=None
+[2026-03-23T01:13:13.771+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260322T235721.csv.gz, result=None
+[2026-03-23T01:13:13.775+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260323T005246.csv.gz, result=None
+[2026-03-23T01:13:13.778+0000] {postgres_client.py:208} INFO - Checking file landing/customers/customers_20260323T011217.csv.gz, result=None
+[2026-03-23T01:13:13.781+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260319_194532.csv.gz, result=None
+[2026-03-23T01:13:13.784+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260321T212748.csv.gz, result=None
+[2026-03-23T01:13:13.787+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260321_211221.csv.gz, result=None
+[2026-03-23T01:13:13.789+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T183535.csv.gz, result=None
+[2026-03-23T01:13:13.793+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T183909.csv.gz, result=None
+[2026-03-23T01:13:13.796+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T184136.csv.gz, result=None
+[2026-03-23T01:13:13.800+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T185027.csv.gz, result=None
+[2026-03-23T01:13:13.804+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T185412.csv.gz, result=None
+[2026-03-23T01:13:13.807+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T192419.csv.gz, result=None
+[2026-03-23T01:13:13.810+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T192619.csv.gz, result=None
+[2026-03-23T01:13:13.814+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T193328.csv.gz, result=None
+[2026-03-23T01:13:13.817+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T193503.csv.gz, result=None
+[2026-03-23T01:13:13.820+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T194719.csv.gz, result=None
+[2026-03-23T01:13:13.822+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T195706.csv.gz, result=None
+[2026-03-23T01:13:13.825+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T200122.csv.gz, result=None
+[2026-03-23T01:13:13.828+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T200753.csv.gz, result=None
+[2026-03-23T01:13:13.831+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T201226.csv.gz, result=None
+[2026-03-23T01:13:13.834+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T201524.csv.gz, result=None
+[2026-03-23T01:13:13.837+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T233155.csv.gz, result=None
+[2026-03-23T01:13:13.840+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T233647.csv.gz, result=None
+[2026-03-23T01:13:13.843+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T233839.csv.gz, result=None
+[2026-03-23T01:13:13.846+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260322T235721.csv.gz, result=None
+[2026-03-23T01:13:13.849+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260323T005246.csv.gz, result=None
+[2026-03-23T01:13:13.852+0000] {postgres_client.py:208} INFO - Checking file landing/products/products_20260323T011217.csv.gz, result=None
+[2026-03-23T01:13:13.855+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260319_194532.csv.gz, result=None
+[2026-03-23T01:13:13.858+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260321T212748.csv.gz, result=None
+[2026-03-23T01:13:13.861+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260321_211221.csv.gz, result=None
+[2026-03-23T01:13:13.864+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T183535.csv.gz, result=None
+[2026-03-23T01:13:13.866+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T183909.csv.gz, result=None
+[2026-03-23T01:13:13.870+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T184136.csv.gz, result=None
+[2026-03-23T01:13:13.873+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T185027.csv.gz, result=None
+[2026-03-23T01:13:13.875+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T185412.csv.gz, result=None
+[2026-03-23T01:13:13.877+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T192419.csv.gz, result=None
+[2026-03-23T01:13:13.879+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T192619.csv.gz, result=None
+[2026-03-23T01:13:13.882+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T193328.csv.gz, result=None
+[2026-03-23T01:13:13.884+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T193503.csv.gz, result=None
+[2026-03-23T01:13:13.891+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T194719.csv.gz, result=None
+[2026-03-23T01:13:13.893+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T195706.csv.gz, result=None
+[2026-03-23T01:13:13.895+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T200122.csv.gz, result=None
+[2026-03-23T01:13:13.897+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T200753.csv.gz, result=None
+[2026-03-23T01:13:13.899+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T201226.csv.gz, result=None
+[2026-03-23T01:13:13.902+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T201524.csv.gz, result=None
+[2026-03-23T01:13:13.904+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T233155.csv.gz, result=None
+[2026-03-23T01:13:13.906+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T233647.csv.gz, result=None
+[2026-03-23T01:13:13.908+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T233839.csv.gz, result=None
+[2026-03-23T01:13:13.911+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260322T235721.csv.gz, result=None
+[2026-03-23T01:13:13.913+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260323T005246.csv.gz, result=None
+[2026-03-23T01:13:13.916+0000] {postgres_client.py:208} INFO - Checking file landing/sales/sales_20260323T011217.csv.gz, result=None
+[2026-03-23T01:13:13.923+0000] {dag_utils.py:165} INFO - Loading landing/customers/customers_20260319_194531.csv.gz → raw.customers
+[2026-03-23T01:13:13.933+0000] {postgres_client.py:82} INFO - Executed SQL file: /opt/***/sql/customers_ddl.sql
+[2026-03-23T01:13:14.105+0000] {postgres_client.py:162} INFO - Read 10000 records from gzip file
+[2026-03-23T01:13:18.767+0000] {dag_utils.py:195} INFO - UPSERT completed for landing/customers/customers_20260319_194531.csv.gz
+[2026-03-23T01:13:18.775+0000] {postgres_client.py:43} ERROR - Query failed: relation "ingestion_log" does not exist
+LINE 2:             INSERT INTO ingestion_log (file_name, dataset)
+                                ^
+
+[2026-03-23T01:13:18.776+0000] {dag_utils.py:217} ERROR - Failed loading landing/customers/customers_20260319_194531.csv.gz: relation "ingestion_log" does not exist
+LINE 2:             INSERT INTO ingestion_log (file_name, dataset)
+                                ^
+
+[2026-03-23T01:13:18.778+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/dag.py", line 40, in load_task
+    load_all_from_minio(
+  File "/opt/airflow/dags/dag_utils.py", line 214, in load_all_from_minio
+    postgres_client.track_loaded_file(object_name, dataset)
+  File "/opt/airflow/dags/postgres_client.py", line 213, in track_loaded_file
+    self.execute(
+  File "/opt/airflow/dags/postgres_client.py", line 53, in execute
+    cur.execute(query, params)
+psycopg2.errors.UndefinedTable: relation "ingestion_log" does not exist
+LINE 2:             INSERT INTO ingestion_log (file_name, dataset)
+                                ^
+
+[2026-03-23T01:13:18.847+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=retail_data_pipeline, task_id=load_all_from_minio, run_id=manual__2026-03-23T01:12:17.227808+00:00, execution_date=20260323T011217, start_date=20260323T011312, end_date=20260323T011318
+[2026-03-23T01:13:18.914+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-03-23T01:13:18.917+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 64 for task load_all_from_minio (relation "ingestion_log" does not exist
+LINE 2:             INSERT INTO ingestion_log (file_name, dataset)
+                                ^
+; 1557)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/dag.py", line 40, in load_task
+    load_all_from_minio(
+  File "/opt/airflow/dags/dag_utils.py", line 214, in load_all_from_minio
+    postgres_client.track_loaded_file(object_name, dataset)
+  File "/opt/airflow/dags/postgres_client.py", line 213, in track_loaded_file
+    self.execute(
+  File "/opt/airflow/dags/postgres_client.py", line 53, in execute
+    cur.execute(query, params)
+psycopg2.errors.UndefinedTable: relation "ingestion_log" does not exist
+LINE 2:             INSERT INTO ingestion_log (file_name, dataset)
+                                ^
+
+[2026-03-23T01:13:18.977+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2026-03-23T01:13:19.002+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-23T01:13:19.005+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

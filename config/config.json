@@ -1,0 +1,49 @@
+{
+  "datasets": {
+    "customers": {
+      "table": "raw.customers",
+      "columns": [
+        "customer_id",
+        "name",
+        "email",
+        "phone",
+        "signup_date",
+        "branch_id",
+        "branch_city",
+        "region",
+        "store_type"
+      ],
+      "conflict_cols": ["customer_id"],
+      "load_type": "upsert",
+      "sql": "/opt/airflow/sql/customers_ddl.sql"
+    },
+    "products": {
+      "table": "raw.products",
+      "columns": [
+        "product_id",
+        "name",
+        "category",
+        "subcategory",
+        "brand",
+        "price",
+        "discount_percent"
+      ],
+      "conflict_cols": ["product_id"],
+      "load_type": "upsert",
+      "sql": "/opt/airflow/sql/products_ddl.sql"
+    },
+    "sales": {
+      "table": "raw.sales",
+      "columns": [
+        "sale_id",
+        "customer_id",
+        "product_id",
+        "quantity",
+        "channel",
+        "purchase_date"
+      ],
+      "load_type": "insert",
+      "sql": "/opt/airflow/sql/sales_ddl.sql"
+    }
+  }
+}

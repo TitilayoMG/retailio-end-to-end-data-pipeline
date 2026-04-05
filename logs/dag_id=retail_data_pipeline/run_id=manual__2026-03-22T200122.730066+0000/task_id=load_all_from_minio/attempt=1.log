@@ -1,0 +1,25 @@
+[2026-03-22T20:02:10.039+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-03-22T20:02:10.071+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: retail_data_pipeline.load_all_from_minio manual__2026-03-22T20:01:22.730066+00:00 [queued]>
+[2026-03-22T20:02:10.096+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: retail_data_pipeline.load_all_from_minio manual__2026-03-22T20:01:22.730066+00:00 [queued]>
+[2026-03-22T20:02:10.097+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-03-22T20:02:10.118+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): load_all_from_minio> on 2026-03-22 20:01:22.730066+00:00
+[2026-03-22T20:02:10.133+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=320) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-03-22T20:02:10.136+0000] {standard_task_runner.py:72} INFO - Started process 322 to run task
+[2026-03-22T20:02:10.137+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'retail_data_pipeline', 'load_all_from_minio', 'manual__2026-03-22T20:01:22.730066+00:00', '--job-id', '45', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp9oynhwpx']
+[2026-03-22T20:02:10.143+0000] {standard_task_runner.py:105} INFO - Job 45: Subtask load_all_from_minio
+[2026-03-22T20:02:10.243+0000] {task_command.py:467} INFO - Running <TaskInstance: retail_data_pipeline.load_all_from_minio manual__2026-03-22T20:01:22.730066+00:00 [running]> on host 1cd93f56fe38
+[2026-03-22T20:02:10.389+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='retail_data_pipeline' AIRFLOW_CTX_TASK_ID='load_all_from_minio' AIRFLOW_CTX_EXECUTION_DATE='2026-03-22T20:01:22.730066+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-22T20:01:22.730066+00:00'
+[2026-03-22T20:02:10.391+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-03-22T20:02:10.435+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2026-03-22T20:02:10.703+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2026-03-22T20:02:10.771+0000] {dag_utils.py:128} INFO - Files from MinIO: []
+[2026-03-22T20:02:10.781+0000] {postgres_client.py:82} INFO - Executed SQL file: /opt/***/sql/tracker_ddl.sql
+[2026-03-22T20:02:10.782+0000] {dag_utils.py:141} INFO - No new files to process
+[2026-03-22T20:02:10.784+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-03-22T20:02:10.803+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-03-22T20:02:10.805+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=retail_data_pipeline, task_id=load_all_from_minio, run_id=manual__2026-03-22T20:01:22.730066+00:00, execution_date=20260322T200122, start_date=20260322T200210, end_date=20260322T200210
+[2026-03-22T20:02:10.916+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-03-22T20:02:10.945+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-22T20:02:10.948+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

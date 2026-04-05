@@ -1,0 +1,37 @@
+[2026-03-22T19:33:33.173+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-03-22T19:33:33.199+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: retail_data_pipeline.generate_and_upload_data manual__2026-03-22T19:33:28.325129+00:00 [queued]>
+[2026-03-22T19:33:33.210+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: retail_data_pipeline.generate_and_upload_data manual__2026-03-22T19:33:28.325129+00:00 [queued]>
+[2026-03-22T19:33:33.212+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-03-22T19:33:33.236+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): generate_and_upload_data> on 2026-03-22 19:33:28.325129+00:00
+[2026-03-22T19:33:33.249+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=2465) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-03-22T19:33:33.253+0000] {standard_task_runner.py:72} INFO - Started process 2467 to run task
+[2026-03-22T19:33:33.253+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'retail_data_pipeline', 'generate_and_upload_data', 'manual__2026-03-22T19:33:28.325129+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmp0givbnsd']
+[2026-03-22T19:33:33.259+0000] {standard_task_runner.py:105} INFO - Job 35: Subtask generate_and_upload_data
+[2026-03-22T19:33:33.368+0000] {task_command.py:467} INFO - Running <TaskInstance: retail_data_pipeline.generate_and_upload_data manual__2026-03-22T19:33:28.325129+00:00 [running]> on host daab347df078
+[2026-03-22T19:33:33.530+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='retail_data_pipeline' AIRFLOW_CTX_TASK_ID='generate_and_upload_data' AIRFLOW_CTX_EXECUTION_DATE='2026-03-22T19:33:28.325129+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-22T19:33:28.325129+00:00'
+[2026-03-22T19:33:33.533+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-03-22T19:33:33.570+0000] {base.py:84} INFO - Retrieving connection 'minio_conn'
+[2026-03-22T19:33:37.972+0000] {dag_utils.py:42} INFO - ✅ Customers generated | rows=10000 | duration=4.18s
+[2026-03-22T19:33:37.995+0000] {dag_utils.py:48} INFO - ✅ Products generated | rows=2000 | duration=0.02s
+[2026-03-22T19:33:51.561+0000] {dag_utils.py:54} INFO - ✅ Sales generated | rows=1500088 | duration=13.56s
+[2026-03-22T19:33:51.569+0000] {dag_utils.py:69} INFO - ⬆️ Uploading customers | rows=10000 | destination=s3://retailio/landing/customers/customers_20260322T193328.csv.gz
+[2026-03-22T19:33:51.570+0000] {minio_client.py:217} INFO - Streaming upload to s3://retailio/landing/customers/customers_20260322T193328.csv.gz
+[2026-03-22T19:33:51.946+0000] {minio_client.py:245} INFO - Streaming upload complete
+[2026-03-22T19:33:51.947+0000] {dag_utils.py:82} INFO - ✅ Upload successful: customers | duration=0.38s
+[2026-03-22T19:33:51.948+0000] {dag_utils.py:69} INFO - ⬆️ Uploading products | rows=2000 | destination=s3://retailio/landing/products/products_20260322T193328.csv.gz
+[2026-03-22T19:33:51.950+0000] {minio_client.py:217} INFO - Streaming upload to s3://retailio/landing/products/products_20260322T193328.csv.gz
+[2026-03-22T19:33:52.007+0000] {minio_client.py:245} INFO - Streaming upload complete
+[2026-03-22T19:33:52.008+0000] {dag_utils.py:82} INFO - ✅ Upload successful: products | duration=0.06s
+[2026-03-22T19:33:52.010+0000] {dag_utils.py:69} INFO - ⬆️ Uploading sales | rows=1500088 | destination=s3://retailio/landing/sales/sales_20260322T193328.csv.gz
+[2026-03-22T19:33:52.011+0000] {minio_client.py:217} INFO - Streaming upload to s3://retailio/landing/sales/sales_20260322T193328.csv.gz
+[2026-03-22T19:34:10.923+0000] {minio_client.py:245} INFO - Streaming upload complete
+[2026-03-22T19:34:10.925+0000] {dag_utils.py:82} INFO - ✅ Upload successful: sales | duration=18.91s
+[2026-03-22T19:34:10.927+0000] {dag_utils.py:93} INFO - 🎉 Pipeline completed | total_duration=37.14s
+[2026-03-22T19:34:11.097+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-03-22T19:34:11.142+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-03-22T19:34:11.144+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=retail_data_pipeline, task_id=generate_and_upload_data, run_id=manual__2026-03-22T19:33:28.325129+00:00, execution_date=20260322T193328, start_date=20260322T193333, end_date=20260322T193411
+[2026-03-22T19:34:11.295+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-03-22T19:34:11.392+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-03-22T19:34:11.395+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
